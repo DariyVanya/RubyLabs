@@ -1,0 +1,7 @@
+<h1 class="mb-3">Instructors</h1>
+<%= link_to "New instructor", new_instructor_path, class: "btn btn-primary mb-3" %>
+<ul>
+  <% @instructors.each do |instructor| %>
+    <li><%= link_to instructor.name, instructor %> - <%= instructor.role %></li>
+  <% end %>
+</ul>

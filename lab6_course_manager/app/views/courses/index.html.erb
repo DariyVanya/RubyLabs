@@ -1,0 +1,26 @@
+<h1 class="mb-3">Courses</h1>
+<%= link_to "New course", new_course_path, class: "btn btn-primary mb-3" %>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Duration hours</th>
+      <th>Topics</th>
+      <th>Status</th>
+      <th>Start date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr>
+        <td><%= link_to course.title, course %></td>
+        <td><%= course.category&.name %></td>
+        <td><%= course.duration_hours %></td>
+        <td><%= course.topics.map(&:name).join(", ") %></td>
+        <td><%= status_badge(course) %></td>
+        <td><%= course.start_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

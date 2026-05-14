@@ -1,0 +1,15 @@
+<%= form_with model: photo do |f| %>
+  <div>
+    <%= f.label :caption %>
+    <%= f.text_field :caption %>
+  </div>
+  <div>
+    <%= f.label :url %>
+    <%= f.text_field :url %>
+  </div>
+  <div>
+    <%= f.label :recipe_id %>
+    <%= f.collection_select :recipe_id, Recipe.all, :id, :title %>
+  </div>
+  <%= f.submit %>
+<% end %>

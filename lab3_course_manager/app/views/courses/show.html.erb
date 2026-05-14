@@ -1,0 +1,10 @@
+<h1><%= @course.title %></h1>
+<p>Category: <%= @course.category %></p>
+<p>Main tag: <%= @course.main_topic %></p>
+<p>Duration hours: <%= @course.duration_hours %></p>
+<p>Start date: <%= @course.start_date %></p>
+<p>Deadline: <%= @course.end_date %></p>
+<p>Price: <%= @course.price %></p>
+<p>Status: <%= @course.status %></p>
+<%= link_to "Edit", edit_course_path(@course) %>
+<%= button_to "Delete", @course, method: :delete %>

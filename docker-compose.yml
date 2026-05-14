@@ -1,0 +1,33 @@
+services:
+  lab3:
+    build:
+      context: ./lab3_course_manager
+    volumes:
+      - ./lab3_course_manager:/app
+    ports:
+      - "3003:3000"
+
+  lab4:
+    build:
+      context: ./lab4_course_manager
+    volumes:
+      - ./lab4_course_manager:/app
+    ports:
+      - "3004:3000"
+
+  lab5:
+    build:
+      context: ./lab5_course_manager
+    volumes:
+      - ./lab5_course_manager:/app
+    ports:
+      - "3005:3000"
+
+  lab6:
+    build:
+      context: ./lab6_course_manager
+    volumes:
+      - ./lab6_course_manager:/app
+    ports:
+      - "3006:3000"
+

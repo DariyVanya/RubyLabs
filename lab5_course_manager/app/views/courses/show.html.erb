@@ -1,0 +1,17 @@
+<h1 class="mb-3"><%= @course.title %></h1>
+<p><strong>Category:</strong> <%= @course.category %></p>
+<p><strong>Main topic:</strong> <%= @course.main_topic %></p>
+<p><strong>Duration hours:</strong> <%= @course.duration_hours %></p>
+<p><strong>Description:</strong> <%= @course.description %></p>
+<p><strong>Start date:</strong> <%= @course.start_date %></p>
+<p><strong>End date:</strong> <%= @course.end_date %></p>
+<p><strong>Price:</strong> <%= number_to_currency(@course.price) %></p>
+<p><strong>Status:</strong> <%= status_badge(@course) %></p>
+<h2 class="h4 mt-4">Instructors</h2>
+<ul>
+  <% @course.instructors.each do |instructor| %>
+    <li><%= instructor.name %> - <%= instructor.role %></li>
+  <% end %>
+</ul>
+<%= link_to "Edit", edit_course_path(@course), class: "btn btn-outline-primary" %>
+<%= button_to "Delete", @course, method: :delete, class: "btn btn-danger mt-2" %>

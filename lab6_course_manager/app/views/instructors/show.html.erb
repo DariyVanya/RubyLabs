@@ -1,0 +1,5 @@
+<h1 class="mb-3"><%= @instructor.name %></h1>
+<p><strong>Role:</strong> <%= @instructor.role %></p>
+<p><strong>Course:</strong> <%= @instructor.course&.title %></p>
+<%= link_to "Edit", edit_instructor_path(@instructor), class: "btn btn-outline-primary" %>
+<%= button_to "Delete", @instructor, method: :delete, class: "btn btn-danger mt-2" %>

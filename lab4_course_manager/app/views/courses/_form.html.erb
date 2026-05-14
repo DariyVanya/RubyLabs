@@ -1,0 +1,37 @@
+<%= form_with model: course, class: "row g-3" do |f| %>
+  <div class="col-12">
+    <%= f.label :title, class: "form-label" %>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :category, class: "form-label" %>
+    <%= f.select :category, Category.pluck(:name), {}, class: "form-select" %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :main_topic, class: "form-label" %>
+    <%= f.text_field :main_topic, class: "form-control" %>
+  </div>
+  <div class="col-md-6">
+    <%= f.label :client, class: "form-label" %>
+    <%= f.text_field :client, class: "form-control" %>
+  </div>
+  <div class="col-md-3">
+    <%= f.label :start_date, class: "form-label" %>
+    <%= f.date_field :start_date, class: "form-control" %>
+  </div>
+  <div class="col-md-3">
+    <%= f.label :end_date, class: "form-label" %>
+    <%= f.date_field :end_date, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :budget, class: "form-label" %>
+    <%= f.number_field :budget, step: 0.01, class: "form-control" %>
+  </div>
+  <div class="col-md-4">
+    <%= f.label :status, class: "form-label" %>
+    <%= f.select :status, Course.statuses.keys, {}, class: "form-select" %>
+  </div>
+  <div class="col-12">
+    <%= f.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

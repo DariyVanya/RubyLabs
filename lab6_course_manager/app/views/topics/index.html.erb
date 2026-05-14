@@ -1,0 +1,7 @@
+<h1 class="mb-3">Topics</h1>
+<%= link_to "New topic", new_topic_path, class: "btn btn-primary mb-3" %>
+<ul>
+  <% @topics.each do |topic| %>
+    <li><%= link_to topic.name, topic %></li>
+  <% end %>
+</ul>

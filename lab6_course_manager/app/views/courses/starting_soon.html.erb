@@ -1,0 +1,6 @@
+<h1 class="mb-3">Starting soon</h1>
+<ul>
+  <% @courses.each do |course| %>
+    <li><%= link_to course.title, course %> - <%= course.start_date %> - <%= status_badge(course) %></li>
+  <% end %>
+</ul>

@@ -1,0 +1,16 @@
+<h1>Recipes</h1>
+<%= link_to "New recipe", new_recipe_path, class: "btn btn-primary mb-3" %>
+<table class="table table-striped">
+  <thead>
+    <tr><th>Title</th><th>Difficulty</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <% @recipes.each do |recipe| %>
+      <tr>
+        <td><%= link_to recipe.title, recipe %></td>
+        <td><%= difficulty_badge(recipe) %></td>
+        <td><%= recipe.published? ? "Published" : "Draft" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
