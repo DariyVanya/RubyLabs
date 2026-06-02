@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   resources :courses do
     collection do
+      get :active
+      get :drafts
+      get :free
       get :starting_soon
     end
   end

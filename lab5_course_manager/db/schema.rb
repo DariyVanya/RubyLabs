@@ -10,12 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_02_011300) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_02_103000) do
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "name", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
+  create_table "courses", force: :cascade do |t|
+    t.decimal "budget", precision: 12, scale: 2, default: "0.0", null: false
+    t.string "category"
+    t.string "client", null: false
+    t.datetime "created_at", null: false
+    t.text "description"
+    t.integer "duration_hours", default: 0, null: false
+    t.date "end_date"
+    t.string "main_topic"
+    t.date "start_date"
+    t.integer "status", default: 0, null: false
+    t.string "title", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "ingredients", force: :cascade do |t|
@@ -25,6 +40,15 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_02_011300) do
     t.index ["name"], name: "index_ingredients_on_name", unique: true
   end
 
+  create_table "instructors", force: :cascade do |t|
+    t.integer "course_id"
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.string "role", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_instructors_on_course_id"
+  end
+
   create_table "photos", force: :cascade do |t|
     t.string "caption", null: false
     t.datetime "created_at", null: false
@@ -32,20 +56,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_02_011300) do
     t.datetime "updated_at", null: false
     t.string "url", null: false
     t.index ["recipe_id"], name: "index_photos_on_recipe_id"
-  end
-
-  create_table "courses", force: :cascade do |t|
-    t.decimal "budget", precision: 12, scale: 2, default: "0.0", null: false
-    t.string "category"
-    t.string "client", null: false
-    t.datetime "created_at", null: false
-    t.date "end_date"
-    t.text "description"
-    t.string "main_topic"
-    t.date "start_date"
-    t.integer "status", default: 0, null: false
-    t.string "title", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -60,16 +70,6 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_02_011300) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "instructors", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.string "name", null: false
-    t.integer "course_id", null: false
-    t.string "role", null: false
-    t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_instructors_on_course_id"
-  end
-
-  add_foreign_key "photos", "recipes"
   add_foreign_key "instructors", "courses"
+  add_foreign_key "photos", "recipes"
 end
-

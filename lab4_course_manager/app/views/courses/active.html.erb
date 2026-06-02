@@ -3,7 +3,7 @@
   <thead>
     <tr>
       <th>Title</th>
-      <th>Duration hours</th>
+      <th>Budget</th>
       <th>Start date</th>
     </tr>
   </thead>
@@ -11,8 +11,8 @@
     <% @courses.each do |course| %>
       <tr>
         <td><%= link_to course.title, course %></td>
-        <td><%= course.duration_hours %></td>
-        <td><%= status_badge(course) %></td>
+        <td><%= number_to_currency(course.budget) %></td>
+        <td><%= course.start_date %></td>
       </tr>
     <% end %>
   </tbody>

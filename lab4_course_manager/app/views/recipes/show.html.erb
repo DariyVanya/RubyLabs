@@ -1,8 +1,0 @@
-<h1><%= @recipe.title %></h1>
-<p><%= difficulty_badge(@recipe) %></p>
-<p>Category: <%= @recipe.category %></p>
-<p>Cooking time: <%= @recipe.cooking_time %> minutes</p>
-<p>Servings: <%= @recipe.servings %></p>
-<p>Published: <%= @recipe.published? ? "yes" : "no" %></p>
-<%= link_to "Edit", edit_recipe_path(@recipe), class: "btn btn-secondary" %>
-<%= button_to "Delete", @recipe, method: :delete, class: "btn btn-danger" %>

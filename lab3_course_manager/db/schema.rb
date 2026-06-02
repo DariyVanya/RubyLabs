@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_05_02_010300) do
+ActiveRecord::Schema[8.1].define(version: 2026_06_02_090000) do
   create_table "categories", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.string "name", null: false
@@ -18,24 +18,26 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_02_010300) do
     t.index ["name"], name: "index_categories_on_name", unique: true
   end
 
-  create_table "ingredients", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.string "name", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_ingredients_on_name", unique: true
-  end
-
   create_table "courses", force: :cascade do |t|
     t.decimal "budget", precision: 12, scale: 2, default: "0.0", null: false
     t.string "category"
     t.string "client", null: false
     t.datetime "created_at", null: false
+    t.integer "duration_hours"
     t.date "end_date"
     t.string "main_topic"
+    t.decimal "price", precision: 12, scale: 2, default: "0.0", null: false
     t.date "start_date"
     t.integer "status", default: 0, null: false
     t.string "title", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "name", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_ingredients_on_name", unique: true
   end
 
   create_table "recipes", force: :cascade do |t|
@@ -49,4 +51,3 @@ ActiveRecord::Schema[8.1].define(version: 2026_05_02_010300) do
     t.datetime "updated_at", null: false
   end
 end
-

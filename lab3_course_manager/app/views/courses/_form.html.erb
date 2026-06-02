@@ -8,6 +8,10 @@
     <%= f.select :category, Category.pluck(:name) %>
   </div>
   <div>
+    <%= f.label :client %>
+    <%= f.text_field :client %>
+  </div>
+  <div>
     <%= f.label :main_topic %>
     <%= f.text_field :main_topic %>
   </div>

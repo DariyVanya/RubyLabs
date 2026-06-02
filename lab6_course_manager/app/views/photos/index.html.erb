@@ -1,7 +1,0 @@
-<h1>Photos</h1>
-<%= link_to "New photo", new_photo_path %>
-<ul>
-  <% @photos.each do |photo| %>
-    <li><%= link_to photo.caption, photo %> - <%= photo.recipe&.title %></li>
-  <% end %>
-</ul>

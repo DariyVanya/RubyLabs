@@ -1,10 +1,18 @@
-<h1 class="mb-3">Courses</h1>
-<%= link_to "New course", new_course_path, class: "btn btn-primary mb-3" %>
+<div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+  <h1 class="mb-0 me-auto"><%= @courses_title || "Courses" %></h1>
+  <%= link_to "All", courses_path, class: "btn btn-outline-secondary" %>
+  <%= link_to "Active", active_courses_path, class: "btn btn-outline-secondary" %>
+  <%= link_to "Drafts", drafts_courses_path, class: "btn btn-outline-secondary" %>
+  <%= link_to "Free", free_courses_path, class: "btn btn-outline-secondary" %>
+  <%= link_to "Starting soon", starting_soon_courses_path, class: "btn btn-outline-secondary" %>
+  <%= link_to "New course", new_course_path, class: "btn btn-primary" %>
+</div>
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Title</th>
       <th>Category</th>
+      <th>Client</th>
       <th>Duration hours</th>
       <th>Status</th>
       <th>Start date</th>
@@ -15,6 +23,7 @@
       <tr>
         <td><%= link_to course.title, course %></td>
         <td><%= course.category %></td>
+        <td><%= course.client %></td>
         <td><%= course.duration_hours %></td>
         <td><%= status_badge(course) %></td>
         <td><%= course.start_date %></td>

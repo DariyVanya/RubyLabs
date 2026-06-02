@@ -1,8 +1,0 @@
-<h1><%= @recipe.title %></h1>
-<p>Category: <%= @recipe.category %></p>
-<p>Cooking time: <%= @recipe.cooking_time %></p>
-<p>Servings: <%= @recipe.servings %></p>
-<p>Difficulty: <%= @recipe.difficulty %></p>
-<p>Published: <%= @recipe.published? %></p>
-<%= link_to "Edit", edit_recipe_path(@recipe) %>
-<%= button_to "Delete", @recipe, method: :delete %>

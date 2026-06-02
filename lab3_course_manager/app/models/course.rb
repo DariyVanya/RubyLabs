@@ -2,6 +2,7 @@ class Course < ApplicationRecord
   enum :status, { draft: 0, active: 1, archived: 2 }
 
   validates :title, presence: true, length: { minimum: 3, maximum: 100 }
+  validates :client, presence: true
   validates :duration_hours, numericality: { greater_than: 0 }
   validates :price, numericality: { greater_than_or_equal_to: 0 }
   validates :end_date, presence: true
